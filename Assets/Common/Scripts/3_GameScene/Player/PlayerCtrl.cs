@@ -207,7 +207,7 @@ public class PlayerCtrl : MonoBehaviour
 
         PlayerDie = true;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3.5f);
 
         gameScene.PlayerDie(stage01Scene.playerDeadPanel);
 

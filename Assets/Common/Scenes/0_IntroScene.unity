@@ -28975,13 +28975,13 @@ MonoBehaviour:
   bGameStart: 0
   bPause: 0
   eControlType: 0
-  coinScore: 10000
+  coinScore: 5000
   maxHp: 100
-  curHp: 100
+  curHp: 20
   powerUpTime: 3
   magnetIndex: 0
   stage01Score: 0
-  stage01BestScore: 1000
+  stage01BestScore: 0
   stage01Distance: 0
   Stage01Start: 0
   bItemHpUse: 0

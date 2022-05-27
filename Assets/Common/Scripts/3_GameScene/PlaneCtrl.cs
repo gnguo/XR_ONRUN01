@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlaneCtrl : MonoBehaviour
 {
     public PlayerCtrl playerCtrl;
+    public Transform target;
+    Vector3 offeset;
 
     public float moveSpeed = 20.0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        offeset = transform.position - target.position;
         
     }
 
@@ -21,7 +24,7 @@ public class PlaneCtrl : MonoBehaviour
         {
             if (!playerCtrl.PlayerDie)
             {
-
+                transform.position = target.position + offeset;
                 transform.position += Vector3.forward * moveSpeed * Time.deltaTime;
             }
         }
