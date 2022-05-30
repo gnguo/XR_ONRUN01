@@ -28,12 +28,11 @@ public class PlayerCtrl : MonoBehaviour
     /// </summary>
     public int nShield;
 
-    private SkinnedMeshRenderer[] meshs;
-    private PlayerTouchMovement movement;
+   //private SkinnedMeshRenderer[] meshs;
+   private PlayerTouchMovement movement;
 
-    private GameScene gameScene;
+    public GameScene gameScene;
     public GameInstance gameInstance;
-    public Stage01Scene stage01Scene;
     public Item_Collection itemCollection;
 
     public Animator anim;
@@ -52,13 +51,11 @@ public class PlayerCtrl : MonoBehaviour
     private void Awake()
     {
         movement = GetComponent<PlayerTouchMovement>();
-        meshs = GetComponentsInChildren<SkinnedMeshRenderer>();
+        //meshs = GetComponentsInChildren<SkinnedMeshRenderer>();
         gameScene = GameObject.Find("GameScene").GetComponent<GameScene>();
         gameInstance = GameObject.Find("GameInstance").GetComponent<GameInstance>();
         audioManager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
-        
-        stage01Scene = GameObject.Find("Stage01Scene").GetComponent<Stage01Scene>();
-    }
+            }
 
     void Start()
     {
@@ -184,67 +181,67 @@ public class PlayerCtrl : MonoBehaviour
 
 
 
-    public void HitObstacle()
-    {
-        if (gameInstance.curHp > 0 && !itemCollection.bPowerUp)
-        {
+    //public void HitObstacle()
+    //{
+    //    if (gameInstance.curHp > 0 && !itemCollection.bPowerUp)
+    //    {
 
-            StartCoroutine(HitObstacleICoroutine());
-            CameraShake.Instance.OnShakeCamera(0.3f, 0.1f);
+    //        StartCoroutine(HitObstacleICoroutine());
+    //        CameraShake.Instance.OnShakeCamera(0.3f, 0.1f);
 
-            if (gameInstance.curHp <= 0)
-            {
+    //        if (gameInstance.curHp <= 0)
+    //        {
 
-                StartCoroutine(PlayerDeadCoroutine());
-            }
+    //            StartCoroutine(PlayerDeadCoroutine());
+    //        }
 
-        }
-    }
+    //    }
+    //}
 
-    IEnumerator PlayerDeadCoroutine()
-    {
-        anim.SetTrigger("dieT");
+    //IEnumerator PlayerDeadCoroutine()
+    //{
+    //    anim.SetTrigger("dieT");
 
-        PlayerDie = true;
+    //    PlayerDie = true;
 
-        yield return new WaitForSeconds(3.5f);
+    //    yield return new WaitForSeconds(3.5f);
 
-        gameScene.PlayerDie(stage01Scene.playerDeadPanel);
+    //    gameScene.PlayerDie(stage01Scene.playerDeadPanel);
 
-        //gameoverUI start.
-        //gameStop
-    }
+    //    //gameoverUI start.
+    //    //gameStop
+    //}
 
-    IEnumerator HitObstacleICoroutine()
-    {
-        IsHit = true;
-        gameInstance.curHp -= 10;
+    //IEnumerator HitObstacleICoroutine()
+    //{
+    //    IsHit = true;
+    //    gameInstance.curHp -= 10;
 
-        if (IsHit)
-        {
-            foreach (SkinnedMeshRenderer mesh in meshs)
-            {
-                mesh.material.color = Color.red;
-                audioManager.soundEffectAudio[2].Play();
-            }
-            movement.moveSpeed = 17f;
+    //    if (IsHit)
+    //    {
+    //        foreach (SkinnedMeshRenderer mesh in meshs)
+    //        {
+    //            mesh.material.color = Color.red;
+    //            audioManager.soundEffectAudio[2].Play();
+    //        }
+    //        movement.moveSpeed = 17f;
 
-        }
+    //    }
 
-        yield return new WaitForSeconds(0.1f);
+    //    yield return new WaitForSeconds(0.1f);
 
-        IsHit = false;
+    //    IsHit = false;
 
-        if (!IsHit)
-        {
-            foreach (SkinnedMeshRenderer mesh in meshs)
-            {
-                mesh.material.color = Color.white;
-            }
-            movement.moveSpeed = 30;
-        }
+    //    if (!IsHit)
+    //    {
+    //        foreach (SkinnedMeshRenderer mesh in meshs)
+    //        {
+    //            mesh.material.color = Color.white;
+    //        }
+    //        movement.moveSpeed = 30;
+    //    }
 
-    }
+    //}
 
 
     IEnumerator JumpOrDownTouchCoroutine()

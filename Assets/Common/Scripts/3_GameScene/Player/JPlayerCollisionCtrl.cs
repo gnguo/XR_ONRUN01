@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class JPlayerCollisionCtrl : MonoBehaviour
 {
-    public PlayerCtrl player;
+    public PlayerStage01 player;
     private GameScene gameScene;
     //private Stage02Scene stage02Scene;
 
     private void Awake()
     {
         gameScene = GameObject.Find("GameScene").GetComponent<GameScene>();
-       // stage02Scene = GameObject.Find("Stage02Scene").GetComponent<Stage02Scene>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        
             switch (other.tag)
             {
                 case "Obstacle":
@@ -25,7 +25,7 @@ public class JPlayerCollisionCtrl : MonoBehaviour
                 break;
 
             case "Obstacles":
-                if(!player.IsSlied)
+                if(!player.playerctrl.IsSlied)
                 {
                     player.HitObstacle();
                     Debug.Log("Player HIT!!!!!!!!!!!!!!!!!!");

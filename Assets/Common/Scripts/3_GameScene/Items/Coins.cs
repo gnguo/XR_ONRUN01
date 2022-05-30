@@ -24,7 +24,7 @@ public class Coins : MonoBehaviour
     private void OnDisable()
     {
 
-        Invoke("CoinActiveTrueInvoke", 1.5f);
+        Invoke("CoinActiveTrueInvoke", 2.5f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -69,6 +69,11 @@ public class Coins : MonoBehaviour
         if(this.gameObject.activeSelf ==false)
         {
             this.gameObject.SetActive(true);
+            if(this.transform.position.y!=1)
+            {
+                this.transform.position = new Vector3(this.transform.position.x,1,this.transform.position.z);
+
+            }
         }
 
     }
