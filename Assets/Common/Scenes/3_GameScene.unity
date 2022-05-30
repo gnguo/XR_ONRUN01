@@ -7181,7 +7181,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1471311704}
         m_TargetAssemblyTypeName: Stage01Scene, Assembly-CSharp
-        m_MethodName: GoToGameBtn01
+        m_MethodName: GoToBackBtn01
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
