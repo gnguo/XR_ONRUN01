@@ -76,9 +76,6 @@ public class PlayerCtrl : MonoBehaviour
 
         if (!PlayerDie && !CameraShake.Instance.IsCamShake)
         {
-            //if(!gameScene.IsStartDelay)
-            //{
-
             if (Application.isMobilePlatform)
             {
                 OnMobilePlatform();

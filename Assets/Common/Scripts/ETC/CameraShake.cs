@@ -68,6 +68,7 @@ public class CameraShake : MonoBehaviour
 
         yield return new WaitForSeconds(shakeTime);
 
+
         IsCamShake = false;
     }
 }

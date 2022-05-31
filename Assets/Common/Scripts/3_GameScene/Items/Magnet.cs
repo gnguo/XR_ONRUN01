@@ -44,10 +44,12 @@ public class Magnet : MonoBehaviour
         isMagnet = true;
 
         coinDetectorObj.SetActive(true);
+        yield return new WaitForSeconds(3.9f);
+
+        player.EffectList[1].Stop();
 
         yield return new WaitForSeconds(4f);
         coinDetectorObj.SetActive(false);
-        player.EffectList[1].Stop();
 
         isMagnet = false;
     }

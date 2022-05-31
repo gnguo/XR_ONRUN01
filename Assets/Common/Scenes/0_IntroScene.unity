@@ -28981,7 +28981,7 @@ MonoBehaviour:
   powerUpTime: 3
   magnetIndex: 0
   stage01Score: 0
-  stage01BestScore: 0
+  stage01BestScore: 1000
   stage01Distance: 0
   Stage01Start: 0
   bItemHpUse: 0
