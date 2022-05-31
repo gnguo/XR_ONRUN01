@@ -32,9 +32,12 @@ public class LobbyScene : HSingleton<LobbyScene>
     private GameInstance gameInstance;
     private AudioManager audioManager;
     public MapCollection mapCollection;
+    public CameraZoom camZoom;
 
-    bool isStage01;
-    bool isStage02;
+    public bool isStage01;
+    public bool isStage02;
+
+    public bool isZoom;
 
     public List<Image> StarImgs01;
 
@@ -103,14 +106,27 @@ public class LobbyScene : HSingleton<LobbyScene>
     {
         isStage01 = true;
 
+        //camZoom.ZoomActive = true;
         audioManager.soundEffectAudio[0].Play();
 
         if (isStage02)
             isStage02 = false;
 
         shopPanel.SetActive(true);
+        //스테이지 세부사항판넬 활성화
     }
-    
+
+    //판넬 말고 카메라 확대시 켜져야 할 판넬 새로 만들어서 넣어줌ㅇㅇ 새로운 판넬에 뒤로가기 버튼 만들어서 
+    //zoomActive false 할수있게 해줌... 저거 false하면 판넬도 꺼지게 해야함 새로운 판넬에 맵 간단한 정보 + next버튼 만들어서 누르면 상점열리게
+
+    public void StartStage01Btn()
+    {
+        isZoom = true;
+        shopPanel.SetActive(true);
+        audioManager.soundEffectAudio[0].Play();
+
+    }
+
     public void StageBtn02()
     {
         isStage02 = true;

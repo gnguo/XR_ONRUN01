@@ -59,7 +59,6 @@ public class CameraShake : MonoBehaviour
             this.transform.position = new Vector3(pos.x,pos.y, z);
             
             shakeTime -= Time.deltaTime;
-            Debug.Log("카메라 흔들어여==============");
 
             yield return null;  
         }
